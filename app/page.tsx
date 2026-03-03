@@ -8,12 +8,13 @@ export default function Home() {
   const [status, setStatus] = useState("Idle");
 
   const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files[0];
-    if (!selectedFile) return;
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
 
+    const selectedFile = files[0];
+    
     const text = await selectedFile.text();
-    const rows = text.split("\n").slice(0, 100);
-    setPreview(rows);
+    setFile(selectedFile);
   };
 
   return (
