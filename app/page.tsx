@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState([]);
+  const [preview, setPreview] = useState<string[]>([]);
   const [bought, setBought] = useState(false);
   const [status, setStatus] = useState("Idle");
 
@@ -58,7 +58,7 @@ export default function Home() {
                 Rows: {preview.length}
               </p>
               <p className="text-sm text-gray-300">
-                Columns: {preview[0]?.split(",").length}
+                Columns: {preview.length > 0 ? preview[0].split(",").length : 0}
               </p>
             </div>
 
