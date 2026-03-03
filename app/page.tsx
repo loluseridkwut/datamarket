@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState([]);
   const [bought, setBought] = useState(false);
   const [status, setStatus] = useState("Idle");
