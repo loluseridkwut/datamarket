@@ -7,9 +7,9 @@ export default function Home() {
   const [bought, setBought] = useState(false);
   const [status, setStatus] = useState("Idle");
 
-  const handleFile = async (e) => {
+  const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files[0];
-    setFile(selectedFile);
+    if (!selectedFile) return;
 
     const text = await selectedFile.text();
     const rows = text.split("\n").slice(0, 100);
