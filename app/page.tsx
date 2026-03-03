@@ -58,7 +58,9 @@ export default function Home() {
                 Rows: {preview.length}
               </p>
               <p className="text-sm text-gray-300">
-                Columns: {preview.length > 0 ? preview[0].split(",").length : 0}
+                Columns: {preview.length > 0 && typeof preview[0] === "string"
+                  ?preview[0].split(",").length
+                  :0}
               </p>
             </div>
 
